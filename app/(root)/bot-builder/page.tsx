@@ -1,9 +1,9 @@
 import React from 'react'
 
-const GenerationsPage = () => {
+const BotBuilder = () => {
   return (
-    <div>GenerationsPage</div>
+    <div>BotBuilder</div>
   )
 }
 
-export default GenerationsPage
+export default BotBuilder
