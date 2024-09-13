@@ -5,29 +5,24 @@ export const navLinks = [
       icon: "/assets/icons/home.svg",
     },
     {
-      label: "Image Restore",
-      route: "/transformations/add/restore",
-      icon: "/assets/icons/image.svg",
+      label: "Bot Builder",
+      route: "/bot-builder",
+      icon: "/assets/icons/bot.svg",
     },
     {
-      label: "Generative Fill",
-      route: "/transformations/add/fill",
-      icon: "/assets/icons/stars.svg",
+      label: "Dashboard",
+      route: "/dashboard",
+      icon: "/assets/icons/dashboard.svg",
     },
     {
-      label: "Object Remove",
-      route: "/transformations/add/remove",
-      icon: "/assets/icons/scan.svg",
+      label: "Integrations",
+      route: "/integrations",
+      icon: "/assets/icons/integrations.svg",
     },
     {
-      label: "Object Recolor",
-      route: "/transformations/add/recolor",
-      icon: "/assets/icons/filter.svg",
-    },
-    {
-      label: "Background Remove",
-      route: "/transformations/add/removeBackground",
-      icon: "/assets/icons/camera.svg",
+      label: "Analytics",
+      route: "/analytics",
+      icon: "/assets/icons/analytics.svg",
     },
     {
       label: "Profile",
@@ -39,47 +34,52 @@ export const navLinks = [
       route: "/credits",
       icon: "/assets/icons/bag.svg",
     },
+    {
+      label: "support",
+      route: "/support",
+      icon: "/assets/icons/support.svg",
+    },
   ];
   
   export const plans = [
     {
       _id: 1,
-      name: "Free",
+      name: "Free Plan",
       icon: "/assets/icons/free-plan.svg",
       price: 0,
-      credits: 20,
+      credits: 100,  // E.g., API call credits
       inclusions: [
         {
-          label: "20 Free Credits",
+          label: "100 API Credits",
           isIncluded: true,
         },
         {
-          label: "Basic Access to Services",
+          label: "Basic Bot Features",
           isIncluded: true,
         },
         {
-          label: "Priority Customer Support",
-          isIncluded: false,
+          label: "Standard Customer Support",
+          isIncluded: true,
         },
         {
-          label: "Priority Updates",
+          label: "Limited Integrations",
           isIncluded: false,
         },
       ],
     },
     {
       _id: 2,
-      name: "Pro Package",
-      icon: "/assets/icons/free-plan.svg",
-      price: 40,
-      credits: 120,
+      name: "Pro Plan",
+      icon: "/assets/icons/pro-plan.svg",
+      price: 50,
+      credits: 1000,
       inclusions: [
         {
-          label: "120 Credits",
+          label: "1000 API Credits",
           isIncluded: true,
         },
         {
-          label: "Full Access to Services",
+          label: "Full Bot Features",
           isIncluded: true,
         },
         {
@@ -87,107 +87,84 @@ export const navLinks = [
           isIncluded: true,
         },
         {
-          label: "Priority Updates",
-          isIncluded: false,
+          label: "All Integrations Included",
+          isIncluded: true,
         },
       ],
     },
     {
       _id: 3,
-      name: "Premium Package",
-      icon: "/assets/icons/free-plan.svg",
-      price: 199,
-      credits: 2000,
+      name: "Enterprise Plan",
+      icon: "/assets/icons/enterprise-plan.svg",
+      price: 299,
+      credits: 10000,
       inclusions: [
         {
-          label: "2000 Credits",
+          label: "10000 API Credits",
           isIncluded: true,
         },
         {
-          label: "Full Access to Services",
+          label: "Advanced Bot Features",
           isIncluded: true,
         },
         {
-          label: "Priority Customer Support",
+          label: "24/7 Priority Support",
           isIncluded: true,
         },
         {
-          label: "Priority Updates",
+          label: "Custom Integrations",
           isIncluded: true,
         },
       ],
     },
   ];
   
-  export const transformationTypes = {
-    restore: {
-      type: "restore",
-      title: "Restore Image",
-      subTitle: "Refine images by removing noise and imperfections",
-      config: { restore: true },
-      icon: "image.svg",
+  
+  export const botActions = {
+    nlp: {
+      type: "nlp",
+      title: "Natural Language Processing",
+      subTitle: "Enable advanced NLP for the chatbot to better understand users' queries.",
+      config: { nlp: true },
+      icon: "nlp.svg",
     },
-    removeBackground: {
-      type: "removeBackground",
-      title: "Background Remove",
-      subTitle: "Removes the background of the image using AI",
-      config: { removeBackground: true },
-      icon: "camera.svg",
+    model: {
+      type: "model",
+      title: "Bot Model",
+      subTitle: "Choose a model for your chatbot (e.g., FAQ, Conversational, etc.).",
+      config: { models: ["Llama3", "Gemma7B", "Mixtral 8X7B"] },
+      icon: "model.svg",
     },
-    fill: {
-      type: "fill",
-      title: "Generative Fill",
-      subTitle: "Enhance an image's dimensions using AI outpainting",
-      config: { fillBackground: true },
-      icon: "stars.svg",
+    tone: {
+      type: "tone",
+      title: "Configure Bot Tone",
+      subTitle: "Set a tone for your bot's responses (friendly, professional, etc.).",
+      config: { tone: ["friendly", "professional", "business"] },
+      icon: "tone.svg",
     },
-    remove: {
-      type: "remove",
-      title: "Object Remove",
-      subTitle: "Identify and eliminate objects from images",
-      config: {
-        remove: { prompt: "", removeShadow: true, multiple: true },
-      },
-      icon: "scan.svg",
+    integration: {
+      type: "integration",
+      title: "Integrations",
+      subTitle: "Connect your chatbot to third-party services like HubSpot, Salesforce, etc.",
+      config: { integrations: true },
+      icon: "integrations.svg",
     },
-    recolor: {
-      type: "recolor",
-      title: "Object Recolor",
-      subTitle: "Identify and recolor objects from the image",
-      config: {
-        recolor: { prompt: "", to: "", multiple: true },
-      },
-      icon: "filter.svg",
+    language: {
+      type: "language",
+      title: "Language Support",
+      subTitle: "Enable multilingual support for your chatbot.",
+      config: { languages: ["English", "Spanish", "French", "German", "Italian", "Hindi", "Telugu"] },
+      icon: "language.svg",
     },
   };
   
-  export const aspectRatioOptions = {
-    "1:1": {
-      aspectRatio: "1:1",
-      label: "Square (1:1)",
-      width: 1000,
-      height: 1000,
-    },
-    "3:4": {
-      aspectRatio: "3:4",
-      label: "Standard Portrait (3:4)",
-      width: 1000,
-      height: 1334,
-    },
-    "9:16": {
-      aspectRatio: "9:16",
-      label: "Phone Portrait (9:16)",
-      width: 1000,
-      height: 1778,
-    },
-  };
   
   export const defaultValues = {
-    title: "",
-    aspectRatio: "",
-    color: "",
-    prompt: "",
-    publicId: "",
+    botName: "",
+    language: "English",
+    tone: "Friendly",
+    integrations: {},
+    apiCredits: 100,
   };
   
   export const creditFee = -10;

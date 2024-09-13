@@ -3,8 +3,8 @@ import { Document, Schema, model, models } from "mongoose";
 // Define the Bot interface extending from Document
 export interface Bot extends Document {
   name: string;
-  model: string;  // Model being used for the bot, e.g., "llama2-70b-4096"
-  knowledgeBase: Array<{ content: string }>;  // Array of knowledge base contents
+  model: string;
+  knowledgeBase: Array<{ content: string }>;
   settings: {
     language: string;
     tone: string;
@@ -25,25 +25,25 @@ export interface Bot extends Document {
 
 // Define the schema for the Bot model
 const BotSchema = new Schema({
-  name: { type: String, required: true },  // Name of the chatbot
-  model: { type: String, required: true },  // Model used for the chatbot
+  name: { type: String, required: true },
+  model: { type: String, required: true },
   knowledgeBase: [
     {
-      content: { type: String, required: true },  // Content for the knowledge base
+      content: { type: String, required: true },
     },
   ],
   settings: {
-    language: { type: String, required: true },  // Language configuration
-    tone: { type: String, required: true },  // Tone configuration (e.g., friendly, professional)
+    language: { type: String, required: true },
+    tone: { type: String, required: true },
   },
   integrations: {
     hubspot: { type: String },
     mailchimp: { type: String },
     salesforce: { type: String },
   },
-  author: { type: Schema.Types.ObjectId, ref: 'User' },  // Reference to the user who created the bot
-  createdAt: { type: Date, default: Date.now },  // Creation date
-  updatedAt: { type: Date, default: Date.now }  // Last updated date
+  author: { type: Schema.Types.ObjectId, ref: 'User' },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
 });
 
 // Create the Bot model using the schema, or retrieve an existing one
