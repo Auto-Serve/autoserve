@@ -1,18 +1,12 @@
-import { Document, Schema, model, models } from "mongoose";
+import { Document, Schema, model, models } from 'mongoose';
 
-// Define the Bot interface extending from Document
 export interface Bot extends Document {
   name: string;
-  botModel: string;  // Changed from model to botModel to avoid conflict
+  botModel: string;
   knowledgeBase: Array<{ content: string }>;
   settings: {
     language: string;
     tone: string;
-  };
-  integrations?: {
-    hubspot?: string;
-    mailchimp?: string;
-    salesforce?: string;
   };
   author: {
     _id: string;
@@ -23,10 +17,9 @@ export interface Bot extends Document {
   updatedAt?: Date;
 }
 
-// Define the schema for the Bot model
 const BotSchema = new Schema({
   name: { type: String, required: true },
-  botModel: { type: String, required: true },  // Changed field name
+  botModel: { type: String, required: true },
   knowledgeBase: [
     {
       content: { type: String, required: true },
@@ -36,17 +29,11 @@ const BotSchema = new Schema({
     language: { type: String, required: true },
     tone: { type: String, required: true },
   },
-  integrations: {
-    hubspot: { type: String },
-    mailchimp: { type: String },
-    salesforce: { type: String },
-  },
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+  updatedAt: { type: Date, default: Date.now },
 });
 
-// Create the Bot model using the schema, or retrieve an existing one
 const Bot = models?.Bot || model('Bot', BotSchema);
 
 export default Bot;
