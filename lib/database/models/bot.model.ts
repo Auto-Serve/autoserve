@@ -3,7 +3,7 @@ import { Document, Schema, model, models } from "mongoose";
 // Define the Bot interface extending from Document
 export interface Bot extends Document {
   name: string;
-  model: string;
+  botModel: string;  // Changed from model to botModel to avoid conflict
   knowledgeBase: Array<{ content: string }>;
   settings: {
     language: string;
@@ -26,7 +26,7 @@ export interface Bot extends Document {
 // Define the schema for the Bot model
 const BotSchema = new Schema({
   name: { type: String, required: true },
-  model: { type: String, required: true },
+  botModel: { type: String, required: true },  // Changed field name
   knowledgeBase: [
     {
       content: { type: String, required: true },

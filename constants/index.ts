@@ -72,10 +72,10 @@ export const navLinks = [
       name: "Pro Plan",
       icon: "/assets/icons/pro-plan.svg",
       price: 50,
-      credits: 1000,
+      credits: 10000,
       inclusions: [
         {
-          label: "1000 API Credits",
+          label: "10000 API Credits",
           isIncluded: true,
         },
         {
@@ -97,10 +97,10 @@ export const navLinks = [
       name: "Enterprise Plan",
       icon: "/assets/icons/enterprise-plan.svg",
       price: 299,
-      credits: 10000,
+      credits: 100000000,
       inclusions: [
         {
-          label: "10000 API Credits",
+          label: "100000000 API Credits",
           isIncluded: true,
         },
         {

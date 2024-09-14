@@ -4,8 +4,6 @@ import { type ClassValue, clsx } from "clsx";
 import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
-import { aspectRatioOptions } from "@/constants";
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -13,21 +11,21 @@ export function cn(...inputs: ClassValue[]) {
 // ERROR HANDLER
 export const handleError = (error: unknown) => {
   if (error instanceof Error) {
-    // This is a native JavaScript error (e.g., TypeError, RangeError)
+    // Native JavaScript error (e.g., TypeError, RangeError)
     console.error(error.message);
     throw new Error(`Error: ${error.message}`);
   } else if (typeof error === "string") {
-    // This is a string error message
+    // String error message
     console.error(error);
     throw new Error(`Error: ${error}`);
   } else {
-    // This is an unknown type of error
+    // Unknown error type
     console.error(error);
     throw new Error(`Unknown error: ${JSON.stringify(error)}`);
   }
 };
 
-// PLACEHOLDER LOADER - while image is transforming
+// PLACEHOLDER LOADER - while bot is being created/processed
 const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
@@ -52,12 +50,12 @@ export const dataUrl = `data:image/svg+xml;base64,${toBase64(
 )}`;
 // ==== End
 
-// FORM URL QUERY
+// FORM URL QUERY for chatbots
 export const formUrlQuery = ({
   searchParams,
   key,
   value,
-}: FormUrlQueryParams) => {
+}: UrlQueryParams) => {
   const params = { ...qs.parse(searchParams.toString()), [key]: value };
 
   return `${window.location.pathname}?${qs.stringify(params, {
@@ -65,14 +63,14 @@ export const formUrlQuery = ({
   })}`;
 };
 
-// REMOVE KEY FROM QUERY
+// REMOVE KEYS FROM QUERY for chatbot interaction tracking
 export function removeKeysFromQuery({
   searchParams,
   keysToRemove,
-}: RemoveUrlQueryParams) {
+}: UrlQueryParams) {
   const currentUrl = qs.parse(searchParams);
 
-  keysToRemove.forEach((key) => {
+  keysToRemove.forEach((key: string) => {
     delete currentUrl[key];
   });
 
@@ -84,7 +82,7 @@ export function removeKeysFromQuery({
   return `${window.location.pathname}?${qs.stringify(currentUrl)}`;
 }
 
-// DEBOUNCE
+// DEBOUNCE for API request throttling (to prevent too many bot interaction requests)
 export const debounce = (func: (...args: any[]) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout | null;
   return (...args: any[]) => {
@@ -93,23 +91,7 @@ export const debounce = (func: (...args: any[]) => void, delay: number) => {
   };
 };
 
-// GE IMAGE SIZE
-export type AspectRatioKey = keyof typeof aspectRatioOptions;
-export const getImageSize = (
-  type: string,
-  image: any,
-  dimension: "width" | "height"
-): number => {
-  if (type === "fill") {
-    return (
-      aspectRatioOptions[image.aspectRatio as AspectRatioKey]?.[dimension] ||
-      1000
-    );
-  }
-  return image?.[dimension] || 1000;
-};
-
-// DOWNLOAD IMAGE
+// DOWNLOAD BOT TRANSCRIPT
 export const download = (url: string, filename: string) => {
   if (!url) {
     throw new Error("Resource URL not provided! You need to provide one");
@@ -123,16 +105,16 @@ export const download = (url: string, filename: string) => {
       a.href = blobURL;
 
       if (filename && filename.length)
-        a.download = `${filename.replace(" ", "_")}.png`;
+        a.download = `${filename.replace(" ", "_")}.txt`;
       document.body.appendChild(a);
       a.click();
     })
     .catch((error) => console.log({ error }));
 };
 
-// DEEP MERGE OBJECTS
+// DEEP MERGE OBJECTS for chatbot configurations (to merge bot settings)
 export const deepMergeObjects = (obj1: any, obj2: any) => {
-  if(obj2 === null || obj2 === undefined) {
+  if (obj2 === null || obj2 === undefined) {
     return obj1;
   }
 

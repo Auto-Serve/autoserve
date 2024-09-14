@@ -18,27 +18,27 @@ declare type CreateUserParams = {
   };
   
   // ====== Chatbot PARAMS
-  declare type CreateChatbotParams = {
+  declare type AddBotParams = {
     bot: {
-        botId: string;
-        name: string;
-        model: string;
-        language: string;
-        tone: string;
-        knowledgeBase: KnowledgeBaseEntry[];
+      botId: string;
+      name: string;
+      model: string;
+      language: string;
+      tone: string;
+      knowledgeBase: KnowledgeBaseEntry[];
     };
     userId: string;
     path: string;
   };
   
   declare type UpdateBotParams = {
-    image: {
-        botId: string;
-        name: string;
-        model: string;
-        language: string;
-        tone: string;
-        knowledgeBase: KnowledgeBaseEntry[];
+    bot: {
+      _id: string;
+      name: string;
+      model: string;
+      language: string;
+      tone: string;
+      knowledgeBase: KnowledgeBaseEntry[];
     };
     userId: string;
     path: string;
