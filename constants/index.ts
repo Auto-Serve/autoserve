@@ -119,46 +119,6 @@ export const navLinks = [
     },
   ];
   
-  
-  export const botActions = {
-    nlp: {
-      type: "nlp",
-      title: "Natural Language Processing",
-      subTitle: "Enable advanced NLP for the chatbot to better understand users' queries.",
-      config: { nlp: true },
-      icon: "nlp.svg",
-    },
-    model: {
-      type: "model",
-      title: "Bot Model",
-      subTitle: "Choose a model for your chatbot (e.g., FAQ, Conversational, etc.).",
-      config: { models: ["Llama3", "Gemma7B", "Mixtral 8X7B"] },
-      icon: "model.svg",
-    },
-    tone: {
-      type: "tone",
-      title: "Configure Bot Tone",
-      subTitle: "Set a tone for your bot's responses (friendly, professional, etc.).",
-      config: { tone: ["friendly", "professional", "business"] },
-      icon: "tone.svg",
-    },
-    integration: {
-      type: "integration",
-      title: "Integrations",
-      subTitle: "Connect your chatbot to third-party services like HubSpot, Salesforce, etc.",
-      config: { integrations: true },
-      icon: "integrations.svg",
-    },
-    language: {
-      type: "language",
-      title: "Language Support",
-      subTitle: "Enable multilingual support for your chatbot.",
-      config: { languages: ["English", "Spanish", "French", "German", "Italian", "Hindi", "Telugu"] },
-      icon: "language.svg",
-    },
-  };
-  
-  
   export const defaultValues = {
     botName: "",
     language: "English",
