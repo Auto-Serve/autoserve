@@ -12,20 +12,10 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: {
-        DEFAULT: "20px",
-        lg: "80px",
-      },
+      padding: "2rem",
       screens: {
-        sm: "375px",
-        md: "768px",
-        lg: "1200px",
+        "2xl": "1400px",
       },
-    },
-    screens: {
-      sm: "375px",
-      md: "768px",
-      lg: "1200px",
     },
     extend: {
       colors: {
