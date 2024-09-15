@@ -24,7 +24,7 @@ const MobileNav = () => {
 
       <nav className="flex gap-2">
         <SignedIn>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton />
 
           <Sheet>
             <SheetTrigger>
@@ -36,7 +36,7 @@ const MobileNav = () => {
                 className="cursor-pointer"
               />
             </SheetTrigger>
-            <SheetContent className="sheet-content sm:w-64">
+            <SheetContent className="sheet-content sm:w-64 bg-black">
               <>
                 <Image 
                   src="/assets/logo.svg"
@@ -49,24 +49,24 @@ const MobileNav = () => {
               {navLinks.map((link) => {
                 const isActive = link.route === pathname
 
-                return (
-                  <li 
-                    className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-dark-700`}
-                    key={link.route}
-                    >
-                    <Link className="sidebar-link cursor-pointer" href={link.route}>
-                      <Image 
-                        src={link.icon}
-                        alt="logo"
-                        width={24}
-                        height={24}
-                      />
-                      {link.label}
-                    </Link>
-                  </li>
-                )
-              })}
-              </ul>
+                    return (
+                        <li key={link.route} className={`sidebar-nav_element group ${
+                        isActive ? 'bg-purple/30 text-white' : 'text-white/80'
+                        }`}>
+                        <Link className="sidebar-link" href={link.route}>
+                            <Image 
+                            src={link.icon}
+                            alt="logo"
+                            width={24}
+                            height={24}
+                            className={`${isActive && 'brightness-200'}`}
+                            />
+                            {link.label}
+                        </Link>
+                        </li>
+                    )
+                    })}
+                </ul>
               </>
             </SheetContent>
           </Sheet>
