@@ -10,7 +10,7 @@ export const Header = () => {
               <Image src="/assets/logo.svg" alt="logo" width={38} height={38} />
             </div>
           </div>
-          <div className="text-2xl font-semibold">
+          <div className="text-2xl font-bold tracking-tighter bg-white bg-[radial-gradient(65%_65%_at_right,white,white,rgb(74,32,138,.9))] text-transparent bg-clip-text text-center">
             Auto Serve
           </div>
           <div className="flex gap-4 items-center">
