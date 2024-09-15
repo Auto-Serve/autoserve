@@ -9,12 +9,14 @@ import { Testimonials } from '@/components/sections/Testimonials'
 import { CallToAction } from '@/components/sections/CallToAction'
 import { Footer } from '@/components/sections/Footer'
 import { Features } from '@/components/sections/Features'
+import MobileNav from '@/components/shared/MobileNav'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="root">
       <SignedIn>
         <Sidebar />
+        <MobileNav />
 
         <div className="root-container">
           <div className="wrapper">
