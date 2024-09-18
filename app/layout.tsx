@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Crescita AI",
-  description: "Create Custom Chatbots",
+  description: "Create Customized Chatbots",
 };
 
 export default function RootLayout({
