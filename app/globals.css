@@ -93,7 +93,7 @@ body {
 }
 
 .chat-bubble {
-  background-color: #010101;
+  background-color: #f1f1f1;
   padding: 16px 28px;
   -webkit-border-t-radius: 10px;
   -webkit-border-bottom-left-radius: 2px;
