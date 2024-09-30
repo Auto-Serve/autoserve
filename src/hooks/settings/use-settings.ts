@@ -182,7 +182,7 @@ export const useHelpDesk = (id: string) => {
       reset()
     }
   })
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   const onGetQuestions = async () => {
     setLoading(true)
     const questions = await onGetAllHelpDeskQuestions(id)
@@ -194,7 +194,7 @@ export const useHelpDesk = (id: string) => {
 
   useEffect(() => {
     onGetQuestions()
-  }, [])
+  }, [onGetQuestions])
 
   return {
     register,
@@ -233,7 +233,7 @@ export const useFilterQuestions = (id: string) => {
       setLoading(false)
     }
   })
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   const onGetQuestions = async () => {
     setLoading(true)
     const questions = await onGetAllFilterQuestions(id)
@@ -245,7 +245,7 @@ export const useFilterQuestions = (id: string) => {
 
   useEffect(() => {
     onGetQuestions()
-  }, [])
+  }, [onGetQuestions])
 
   return {
     loading,

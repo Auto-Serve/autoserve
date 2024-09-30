@@ -5,7 +5,7 @@ import {
   getUserPlanInfo,
   getUserTotalProductPrices,
   getUserTransactions,
-} from '@/actions/dashboard'
+} from '@/actions/dashboard/page'
 import DashboardCard from '@/components/dashboard/cards'
 import { PlanUsage } from '@/components/dashboard/plan-usage'
 import InfoBar from '@/components/infobar'
@@ -18,6 +18,8 @@ import { DollarSign } from 'lucide-react'
 import React from 'react'
 
 type Props = {}
+
+export const dynamic = 'force-dynamic'
 
 const Page = async (props: Props) => {
   const clients = await getUserClients()

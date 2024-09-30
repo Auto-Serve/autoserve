@@ -104,7 +104,7 @@ export const useChatBot = () => {
         limitRequest++
       }
     })
-  }, [])
+  }, [limitRequest])
 
   const onStartChatting = handleSubmit(async (values) => {
     console.log('ALL VALUES', values)

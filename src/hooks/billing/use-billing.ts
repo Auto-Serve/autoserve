@@ -52,6 +52,7 @@ export const useStripeCustomer = (amount: number, stripeId: string) => {
 
   useEffect(() => {
     onGetCustomerIntent(amount)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return { stripeSecret, loadForm }

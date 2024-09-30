@@ -77,7 +77,7 @@ export const useChatTime = (createdAt: Date, roomId: string) => {
   const { chatRoom } = useChatContext()
   const [messageSentAt, setMessageSentAt] = useState<string>()
   const [urgent, setUrgent] = useState<boolean>(false)
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   const onSetMessageRecievedDate = () => {
     const dt = new Date(createdAt)
     const current = new Date()
@@ -97,7 +97,7 @@ export const useChatTime = (createdAt: Date, roomId: string) => {
       setMessageSentAt(`${date} ${getMonthName(month)}`)
     }
   }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   const onSeenChat = async () => {
     if (chatRoom == roomId && urgent) {
       await onViewUnReadMessages(roomId)
@@ -107,11 +107,11 @@ export const useChatTime = (createdAt: Date, roomId: string) => {
 
   useEffect(() => {
     onSeenChat()
-  }, [chatRoom])
+  }, [chatRoom, onSeenChat])
 
   useEffect(() => {
     onSetMessageRecievedDate()
-  }, [])
+  }, [onSetMessageRecievedDate])
 
   return { messageSentAt, urgent, onSeenChat }
 }
@@ -147,7 +147,7 @@ export const useChatWindow = () => {
         pusherClient.unsubscribe(chatRoom)
       }
     }
-  }, [chatRoom])
+  }, [chatRoom, setChats])
 
   const onHandleSentMessage = handleSubmit(async (values) => {
     try {
